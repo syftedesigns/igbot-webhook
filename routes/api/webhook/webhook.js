@@ -15,7 +15,7 @@ app.post('/:postId', async(req, res) => {
         // Aplicamos el bot
         const browser = await puppeteer.launch({
             headless: false,
-            args: ['--no-sandbox']
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
         const page = await browser.newPage();
         await page.goto(`https://www.instagram.com/p/${postId}/`, { waitUntil: 'networkidle2' });
