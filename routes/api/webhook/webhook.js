@@ -13,7 +13,10 @@ app.post('/:postId', async(req, res) => {
         let flag = 0; // Contador de cantidad de comentarios que ha enviado
         // Opens the URL in a specified browser
         // Aplicamos el bot
-        const browser = await puppeteer.launch({ headless: false });
+        const browser = await puppeteer.launch({
+            headless: false,
+            args: ['--no-sandbox']
+        });
         const page = await browser.newPage();
         await page.goto(`https://www.instagram.com/p/${postId}/`, { waitUntil: 'networkidle2' });
         // Pulsa el botón de entrar
