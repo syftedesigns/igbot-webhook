@@ -14,6 +14,7 @@ app.post('/:postId', async(req, res) => {
         // Opens the URL in a specified browser
         // Aplicamos el bot
         const browser = await puppeteer.launch({
+            headless: false,
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
         const page = await browser.newPage();
